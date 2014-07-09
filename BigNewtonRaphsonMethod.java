@@ -1,5 +1,7 @@
 package de.ertlu.rob.MathEx;
 
+import android.util.Log;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
@@ -23,7 +25,7 @@ public abstract class BigNewtonRaphsonMethod {
 		public BigDecimal solve(BigDecimal radicand, BigInteger degree, BigDecimal guess, int scale, RoundingMode roundingMode) {
 			this.radicand = radicand;
 			this.degree = degree;
-			return solve(guess, scale, roundingMode);			
+			return solveLoop(guess, scale, roundingMode);
 		}
 	}
 	
@@ -45,7 +47,7 @@ public abstract class BigNewtonRaphsonMethod {
 		}
 		public BigDecimal solve(BigDecimal value, BigDecimal guess, int scale, RoundingMode roundingMode) {
 			this.value = value;
-			return solve(guess, scale, roundingMode);
+			return solveLoop(guess, scale, roundingMode);
 		}
 		
 	}
@@ -56,7 +58,7 @@ public abstract class BigNewtonRaphsonMethod {
 	abstract BigDecimal f(BigDecimal x);
 	abstract BigDecimal fPrime(BigDecimal x);
 	
-	protected BigDecimal solve(BigDecimal guess, int scale, RoundingMode roundingMode) {
+	protected BigDecimal solveLoop(BigDecimal guess, int scale, RoundingMode roundingMode) {
 		BigDecimal lastGuess = null;
 		BigDecimal change;
 		while ( lastGuess == null || lastGuess.setScale(scale, roundingMode).compareTo(guess.setScale(scale, roundingMode)) != 0 ) {

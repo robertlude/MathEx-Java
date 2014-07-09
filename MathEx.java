@@ -88,14 +88,14 @@ public class MathEx {
         return ln(value, defaultScale, defaultRoundingMode);
     }
     public static BigDecimal ln(BigDecimal value, int scale, RoundingMode roundingMode) {
-        return BigNewtonRaphsonMethod.Logarithm.solve(value, scale, roundingMode);
+        return BigNewtonRaphsonMethod.Logarithm.solve(value, BD_1, scale, roundingMode);
     }
 
     public static BigDecimal log(BigDecimal value, BigDecimal base) {
         return log(value, base, defaultScale, defaultRoundingMode);
     }
     public static BigDecimal log(BigDecimal value, BigDecimal base, int scale, RoundingMode roundingMode) {
-        return ln(value).divide(ln(base), scale * 2, roundingMode);
+        return ln(value, scale, roundingMode).divide(ln(base, scale, roundingMode), scale * 2, roundingMode);
     }
     
     public static BigDecimal raise(BigDecimal value, BigInteger exponent) {

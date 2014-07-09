@@ -14,7 +14,8 @@ MathEx contents:
   - BigPowerSeries - A power series wrapper
     - Exponential - Calculates exponential
   - BigRational - Rational wrapper that approximates to any desired precision
-  - MathEx - Miscellaneous functions
+  - MathEx
+    - Miscellaneous functions
     - equals
     - factorial
     - ln
