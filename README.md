@@ -17,6 +17,7 @@ MathEx contents:
   - MathEx - Miscellaneous functions
     - equals
     - factorial
+    - ln
+    - log
     - raise
     - reciprocal
-

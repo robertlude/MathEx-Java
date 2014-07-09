@@ -18,6 +18,7 @@ public class MathEx {
     public static final BigDecimal BD_0 = BigDecimal.ZERO;
     public static final BigDecimal BD_1 = BigDecimal.ONE;
     public static final BigDecimal BD_2 = BigDecimal.valueOf(2);
+    public static final BigDecimal BD_10 = BigDecimal.valueOf(10);
     
     public static boolean equals(BigDecimal a, BigDecimal b) {
     	return equals(a, b, defaultScale, defaultRoundingMode);
@@ -32,6 +33,20 @@ public class MathEx {
     public static BigInteger factorial(BigInteger value) {
     	if ( value.compareTo(BI_2) < 0 ) return BI_1;
     	return value.multiply(factorial(value.subtract(BI_1)));
+    }
+
+    public static BigDecimal ln(BigDecimal value) {
+        return ln(value, defaultScale, defaultRoundingMode);
+    }
+    public static BigDecimal ln(BigDecimal value, int scale, RoundingMode roundingMode) {
+        return BigNewtonRaphsonMethod.Logarithm.solve(value, scale, roundingMode);
+    }
+
+    public static BigDecimal log(BigDecimal value, BigDecimal base) {
+        return log(value, base, defaultScale, defaultRoundingMode);
+    }
+    public static BigDecimal log(BigDecimal value, BigDecimal base, int scale, RoundingMode roundingMode) {
+        return ln(value).divide(ln(base), scale * 2, roundingMode);
     }
     
     public static BigDecimal raise(BigDecimal value, BigInteger exponent) {
