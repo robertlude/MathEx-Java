@@ -30,6 +30,7 @@ public abstract class BigNewtonRaphsonMethod {
 	}
 	
 	public static class LogarithmNewtonRaphsonSolver extends BigNewtonRaphsonMethod {
+        private final Object dataLock = new Object();
 		private BigDecimal value;
 		
 		@Override
@@ -46,8 +47,10 @@ public abstract class BigNewtonRaphsonMethod {
 			return solve(value, MathEx.BD_1, MathEx.defaultScale, MathEx.defaultRoundingMode);
 		}
 		public BigDecimal solve(BigDecimal value, BigDecimal guess, int scale, RoundingMode roundingMode) {
-			this.value = value;
-			return solveLoop(guess, scale, roundingMode);
+            synchronized (dataLock) {
+                this.value = value;
+                return solveLoop(guess, scale, roundingMode);
+            }
 		}
 		
 	}
