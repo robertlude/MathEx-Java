@@ -23,14 +23,15 @@ public abstract class BigNewtonRaphsonMethod {
 			return solve(radicand, degree, MathEx.BD_1, MathEx.defaultScale, MathEx.defaultRoundingMode);
 		}
 		public BigDecimal solve(BigDecimal radicand, BigInteger degree, BigDecimal guess, int scale, RoundingMode roundingMode) {
-			this.radicand = radicand;
-			this.degree = degree;
-			return solveLoop(guess, scale, roundingMode);
+            synchronized (dataLock) {
+                this.radicand = radicand;
+                this.degree = degree;
+                return solveLoop(guess, scale, roundingMode);
+            }
 		}
 	}
 	
 	public static class LogarithmNewtonRaphsonSolver extends BigNewtonRaphsonMethod {
-        private final Object dataLock = new Object();
 		private BigDecimal value;
 		
 		@Override
@@ -57,7 +58,9 @@ public abstract class BigNewtonRaphsonMethod {
 
 	public static final NthRootNewtonRaphsonSolver NthRoot = new NthRootNewtonRaphsonSolver();
 	public static final LogarithmNewtonRaphsonSolver Logarithm = new LogarithmNewtonRaphsonSolver();
-	
+
+    protected final Object dataLock = new Object();
+
 	abstract BigDecimal f(BigDecimal x);
 	abstract BigDecimal fPrime(BigDecimal x);
 	

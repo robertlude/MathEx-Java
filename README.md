@@ -1,24 +1,41 @@
-MathEx-Java
-===========
+# MathEx-Java 0.1.1
 
 MathEx-Java is a Java Math library supporting big numbers by Robert Lude.
-It is not to be considered stable at this point in time.
 
-MathEx-Java aims to provide accurate implementations of useful mathematical concepts to Java where they don't already exist.
+MathEx-Java aims to provide accurate implementations of useful mathematical concepts to Java.
 
-MathEx contents:
+## Usage
 
-  - BigNewtonRaphsonMethod - A Newton-Rhapson method wrapper
-    - NthRoot - Nth root finder
-    - Logarithm - Natural logarithm finder
-  - BigPowerSeries - A power series wrapper
-    - Exponential - Calculates exponential
-  - BigRational - Rational wrapper that approximates to any desired precision
-  - MathEx
-    - Miscellaneous functions
-    - equals
-    - factorial
-    - ln
-    - log
-    - raise
-    - reciprocal
+At your project source root, type
+
+`git submodule add git@github.com:robertlude/MathEx-Java.git de/ertlu/rob/MathEx`
+
+## Components of MathEx
+
+* `BigNewtonRaphsonMethod` - A Newton-Raphson method wrapper
+  * `NthRoot` - N<sup>th</sup> root finder
+  * `Logarithm` - Natural logarithm finder
+* `BigPowerSeries` - A power series wrapper
+  * `Exponential` - Calculates exponential function
+* `BigRational` - Rational wrapper that can approximate to any desired position
+* `MathEx` - Miscellaneous functions
+  * `equals`
+  * `factorial`
+  * `ln`
+  * `log`
+  * `raise`
+  * `reciprocal`
+
+## History
+
+v0.2.1
+
+* Made `BigNewtonRaphsonMethod.NthRoot` and `BigNewtonRaphsonMethod.Logarithm` thread-safe
+
+v0.2.0
+
+* Added convenience functions and constants
+
+v0.1.0
+
+* Implemented `BigNewtonRaphsonMethod`, `BigPowerSeries`, and `BigRational`
