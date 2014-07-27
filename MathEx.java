@@ -123,4 +123,11 @@ public class MathEx {
     public static BigDecimal reciprocal(BigDecimal value, int scale, RoundingMode roundingMode) {
     	return BD_1.divide(value, scale * 2, roundingMode);
     }
+
+    public static BigDecimal min(BigDecimal a, BigDecimal b) {
+        return a.compareTo(b) < 0 ? a : b;
+    }
+    public static BigDecimal max(BigDecimal a, BigDecimal b) {
+        return a.compareTo(b) > 0 ? a : b;
+    }
 }

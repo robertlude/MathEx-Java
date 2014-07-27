@@ -1,4 +1,4 @@
-# MathEx-Java 0.1.1
+# MathEx-Java 0.2.2
 
 MathEx-Java is a Java Math library supporting big numbers by Robert Lude.
 
@@ -23,10 +23,16 @@ At your project source root, type
   * `factorial`
   * `ln`
   * `log`
+  * `max`
+  * `min`
   * `raise`
   * `reciprocal`
 
 ## History
+
+v0.2.2
+
+* Added min/max BigDecimal functions to MathEx
 
 v0.2.1
 

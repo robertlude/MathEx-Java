@@ -1,7 +1,5 @@
 package de.ertlu.rob.MathEx;
 
-import android.util.Log;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
