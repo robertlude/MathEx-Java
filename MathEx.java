@@ -4,7 +4,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.RoundingMode;
 
-public class MathEx {
+public final class MathEx {
     public static int defaultScale = 36;
     public static RoundingMode defaultRoundingMode = RoundingMode.HALF_UP;
 
@@ -129,5 +129,51 @@ public class MathEx {
     }
     public static BigDecimal max(BigDecimal a, BigDecimal b) {
         return a.compareTo(b) > 0 ? a : b;
+    }
+
+    public static byte clamp(final byte min, final byte value, final byte max) {
+        if ( value <= min ) return min;
+        if ( value >= max ) return max;
+        return value;
+    }
+    public static char clamp(final char min, final char value, final char max) {
+        if ( value <= min ) return min;
+        if ( value >= max ) return max;
+        return value;
+    }
+    public static short clamp(final short min, final short value, final short max) {
+        if ( value <= min ) return min;
+        if ( value >= max ) return max;
+        return value;
+    }
+    public static int clamp(final int min, final int value, final int max) {
+        if ( value <= min ) return min;
+        if ( value >= max ) return max;
+        return value;
+    }
+    public static long clamp(final long min, final long value, final long max) {
+        if ( value <= min ) return min;
+        if ( value >= max ) return max;
+        return value;
+    }
+    public static float clamp(final float min, final float value, final float max) {
+        if ( value <= min ) return min;
+        if ( value >= max ) return max;
+        return value;
+    }
+    public static double clamp(final double min, final double value, final double max) {
+        if ( value <= min ) return min;
+        if ( value >= max ) return max;
+        return value;
+    }
+    public static BigInteger clamp(final BigInteger min, final BigInteger value, final BigInteger max) {
+        if ( value.compareTo(min) <= 0 ) return min;
+        if ( value.compareTo(max) >= 0 ) return max;
+        return value;
+    }
+    public static BigDecimal clamp(final BigDecimal min, final BigDecimal value, final BigDecimal max) {
+        if ( value.compareTo(min) <= 0 ) return min;
+        if ( value.compareTo(max) >= 0 ) return max;
+        return value;
     }
 }

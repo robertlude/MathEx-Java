@@ -1,4 +1,4 @@
-# MathEx-Java 0.2.2
+# MathEx-Java 0.2.3
 
 MathEx-Java is a Java Math library supporting big numbers by Robert Lude.
 
@@ -29,6 +29,11 @@ At your project source root, type
   * `reciprocal`
 
 ## History
+
+v0.2.3
+
+* Added clamp functions for types `byte`, `char`, `short`, `int`, `long`, `float`, `double`, `BigInteger` and `BigDecimal`
+* Made `MathEx` final 
 
 v0.2.2
 
